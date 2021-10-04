@@ -1,5 +1,8 @@
 export const appPath = {
 
+    // Root
+    root: '',
+
     // 首頁
     home: 'home',
   

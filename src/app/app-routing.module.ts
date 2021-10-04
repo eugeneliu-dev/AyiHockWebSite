@@ -13,6 +13,10 @@ import { PreloadAllModules } from '@angular/router';
 
 const routes: Routes = [
   {
+    path: appPath.root,
+    loadChildren: () => import('./component/home/home.module').then(m => m.HomeModule)
+  },
+  {
     path: appPath.home,
     loadChildren: () => import('./component/home/home.module').then(m => m.HomeModule)
   },
