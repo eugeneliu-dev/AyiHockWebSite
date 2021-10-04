@@ -1,0 +1,44 @@
+<div class="container col-lg-10">
+    <div class="row align-items-center py-5">
+      <div class="col-md-10 mx-auto col-lg-6">
+        <form class="p-4 p-md-5 border rounded-3"
+              [formGroup]="registerForm" (ngSubmit)="onSubmit()">
+            
+          <strong class="text-muted" style="font-size: larger;">會員註冊</strong>
+          <hr class="my-3">
+          <div class="mb-3 form-group">
+            <input type="text" formControlName="name" class="form-control" placeholder="姓名" required>
+            <div class="help-block" *ngIf="fc.name.errors && (fc.name?.dirty || fc.name?.touched)">
+              <p>請填入暱稱</p>
+          </div> 
+          </div>
+          <div class="mb-3 form-group">
+            <input type="email" formControlName="email" class="form-control" placeholder="電子信箱" required>
+            <div class="help-block" *ngIf="fc.email.errors?.appEmailValidator && (fc.email?.dirty || fc.email?.touched)">
+                <p>信箱格式不正確</p>
+            </div>           
+          </div>
+          <div class="mb-3 form-group">
+            <input type="password" formControlName="password" class="form-control" placeholder="密碼(至少8個字元)" required>
+            <div class="help-block" *ngIf="fc.password.errors && (fc.password?.dirty || fc.password?.touched)">至少需8個字元</div> 
+          </div>
+          <div class="mb-3 form-group">
+            <input type="password" formControlName="confirm" class="form-control" placeholder="確認密碼" required>
+            <div class="help-block" *ngIf="fc.confirm.errors?.minLength">至少需8個字元</div>
+            <div class="help-block" *ngIf="fc.confirm.errors?.mustMatch">密碼不一致</div> 
+          </div>
+          <div class="mb-3 form-group">
+            <input type="text" formControlName="mobile" class="form-control" placeholder="行動電話" required>
+            <div class="help-block" *ngIf="fc.mobile.errors && (fc.mobile?.dirty || fc.mobile?.touched)">
+                <p *ngIf="fc.mobile?.errors">行動電話格式不正確</p>
+            </div>  
+          </div>
+          <button class="w-100 btn component" 
+                  type="submit"
+                  [disabled]="!registerForm.valid">註冊
+          </button>
+        </form>
+      </div>
+    </div>
+</div>
+

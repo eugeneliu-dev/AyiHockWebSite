@@ -1,0 +1,44 @@
+<div class="container" style="margin-top: 70px">
+    <div class="row">
+        <div class="col-lg-8">
+            <div *ngFor="let order of receivedOrderList | async">
+                <h6>訂單編號:{{order.OrderId}}</h6>
+                <table class="table table-bordered table-sm">
+                    <thead>
+                        <tr class="table-success">
+                            <th>電話</th>
+                            <th>總金額</th>
+                            <th>狀態</th>
+                            <th>修改時間</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <td>{{order.OrdererPhone}}</td>
+                            <td>{{order.TotalPrice}}</td>
+                            <td>餐點{{getStatusName(order.Status)}}</td>
+                            <td>{{order.ModifyTime | date:'yyyy-MM-dd hh:mm:ss'}}</td>
+                        </tr>
+                    </tbody>
+                    <thead>
+                        <tr class="table-success">
+                            <th>餐點</th>
+                            <th>數量</th>
+                            <th>單價</th>
+                            <th>小計</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr *ngFor="let content of order.OrderContents">
+                            <td>{{content.MealName}}</td>
+                            <td>{{content.Quantity}}</td>
+                            <td>{{content.MealPrice}}</td>
+                            <td>{{content.MealPrice * content.Quantity}}</td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
+        </div>
+        <div class="col-lg-1"></div>
+    </div>
+</div>

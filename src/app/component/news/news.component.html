@@ -1,0 +1,26 @@
+<div class="container" style="margin-top: 100px">
+    <div class="row">
+        <div class="col-lg-8">
+            <div>
+                <h6>最新消息</h6>
+                <table class="table table-bordered table-sm">
+                    <thead>
+                        <tr class="table-success row">
+                            <th class="col-2">日期</th>
+                            <th class="col-2">分類</th>
+                            <th class="col-8">內容</th>
+                        </tr>
+                    </thead>
+                    <tbody style="font-size: 14px">
+                        <tr class="row" *ngFor="let news of newsList | async">
+                            <td class="col-2">{{news.ModifyTime | date:'yyyy/MM/dd'}}</td>
+                            <td class="col-2">{{news.CategoryName}}</td>
+                            <td class="col-8">{{news.Content}}</td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
+        </div>
+        <div class="col-lg-1"></div>
+    </div>
+</div>

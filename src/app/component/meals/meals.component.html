@@ -1,0 +1,71 @@
+<div class="container" style="margin-top: 70px">
+    <div class="row">
+        <div class="col-lg-6 col-md-6 col-12">
+            <span *ngFor="let type of mealtypes">
+                <button  class="btn-product-type" (click)="changeType(type.typeId)">{{type.type}}</button>
+            </span>
+        </div>
+    </div>
+    <h6></h6>
+    <div class="row">
+        <div class="col-lg-9">
+            <div *ngIf="show_mix_meals">
+                <div *ngFor="let meal of mix_meals" class="row cart-item">
+                    <div class="col-3">
+                        <img src={{meal.picPath}} width="120" height="80">
+                    </div>
+                    <div class="col-6">
+                        <p>{{meal.name }} (${{meal.price}})</p>
+                        <p>{{meal.description}}</p>
+                    </div>
+                    <div class="col-3">
+                        <p>
+                            <span class="counter" (click)="subOne(meal)">-</span><span class="counter">{{meal.quantity}}</span><span class="counter" (click)="addOne(meal)">+</span>
+                        </p>
+                    </div>
+                </div>
+            </div>
+            <div *ngIf="show_double_meals">
+                <div *ngFor="let meal of double_meals" class="row cart-item">
+                    <div class="col-3">
+                        <img src={{meal.picPath}} width="120" height="80">
+                    </div>
+                    <div class="col-6">
+                        <p>{{meal.name }} (${{meal.price}})</p>
+                        <p>{{meal.description}}</p>
+                    </div>
+                    <div class="col-3">
+                        <p>
+                            <span class="counter" (click)="subOne(meal)">-</span><span class="counter">{{meal.quantity}}</span><span class="counter" (click)="addOne(meal)">+</span>
+                        </p>
+                    </div>
+                </div>
+            </div>
+            <div *ngIf="show_others_meals">
+                <div *ngFor="let meal of others_meals" class="row cart-item">
+                    <div class="col-3">
+                        <img src={{meal.picPath}} width="120" height="80">
+                    </div>
+                    <div class="col-6">
+                        <p>{{meal.name }} (${{meal.price}})</p>
+                        <p>{{meal.description}}</p>
+                    </div>
+                    <div class="col-3">
+                        <p>
+                            <span class="counter" (click)="subOne(meal)">-</span><span class="counter">{{meal.quantity}}</span><span class="counter" (click)="addOne(meal)">+</span>
+                        </p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div *ngIf="totalAmount > 0" class="container fixed-bottom">
+        <div class="row bottom-style">
+            <div>
+                <input class="btn-product-type" id="toCheckout" type="button" value={{checkoutText}}
+                    (click)="routeToOrder()" style="float: right;" />
+                <span style="float: right; margin-right: 50px; font-size:x-large;">總金額：{{totalAmount}}</span>
+            </div>
+        </div>
+    </div>
+</div>

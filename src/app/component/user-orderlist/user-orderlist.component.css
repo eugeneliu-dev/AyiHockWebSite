@@ -1,0 +1,15 @@
+.container {
+    /* max-width: 1250px; */
+    padding-top: 30px;
+    margin: 0px auto;
+    overflow: hidden;
+  }
+
+h6 {
+    border-bottom: #EAF0ED 1px solid;
+    /* padding-left: 20px; */
+    padding-bottom: 10px;
+    padding-top: 5px;
+    color: darkolivegreen;
+    font-weight: bold;
+  }

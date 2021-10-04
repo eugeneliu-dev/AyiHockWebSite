@@ -1,0 +1,59 @@
+<div class="container" style="margin-top: 70px">
+    <!-- <div class="row">
+        <span>訂單內容</span>
+    </div>
+    <h6></h6> -->
+    <div class="row">
+        <div class="col-lg-8">
+            <span>訂單內容</span>
+            <h6></h6>
+            <div *ngFor="let meal of order" class="row cart-item">
+                <div class="col-3">
+                    <img src={{meal.picPath}} width="60" height="40">
+                </div>
+                <div class="col-2">
+                    <p>{{meal.name}}</p>
+                </div>
+                <div class="col-3">
+                    <p>
+                        <span class="counter" (click)="subOne(meal)">-</span><span
+                            class="counter">{{meal.quantity}}</span><span class="counter"
+                            (click)="addOne(meal)">+</span>
+                    </p>
+                </div>
+                <div class="col-4">
+                    <p>${{meal.price}} * {{meal.quantity}}份 = {{meal.price*meal.quantity}}元</p>
+                </div>
+            </div>
+            <div>
+                <span style="float: right; margin-right: 50px; font-size:large;">總金額：{{totalAmount*user.discount}}
+                    ({{user.userrole}})</span>
+            </div>
+        </div>
+        <div class="col-lg-4">
+            <span>訂購人資訊</span>
+            <h6></h6>
+            <table class="table-light">
+                <tbody>
+                    <tr class="approvers" style="border-bottom: #EAF0ED 1px solid">
+                        <td class="col-5">訂購人</td>
+                        <td class="col-7">{{user.getName}}</td>
+                    </tr>
+                    <tr class="approvers" style="border-bottom: #EAF0ED 1px solid">
+                        <td class="col-5">電話</td>
+                        <td class="col-7"><input type="text" placeholder="請填入連絡電話"></td>
+                    </tr>
+                    <tr class="approvers" style="border-bottom: #EAF0ED 1px solid">
+                        <td class="col-5">付款方式</td>
+                        <td class="col-7">
+                            <select class="form-select" [(ngModel)]="paymentSelected">
+                                <option *ngFor="let payment of payments">{{payment}}</option>
+                            </select>
+                        </td>
+                    </tr>
+                </tbody>
+            </table>
+            <button class="w-100 btn component" style="margin-top: 10px;" type="submit" (click)="orderConfirm()">結帳付款</button>
+        </div>
+    </div>
+</div>

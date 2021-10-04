@@ -1,0 +1,39 @@
+.bottom-style{
+    background-color: darkolivegreen;
+    color: #f4f4f4;
+    border-top: #EAF0ED 1px solid;
+    height: auto;
+  }
+
+  .bottom-style div {
+    padding: 15px 50px;
+  }
+
+  .btn-color {
+    color: #f4f4f4;
+    background-color: darkolivegreen;
+    font-weight: bold;
+  }
+
+  h5 {
+    border-bottom: #EAF0ED 1px solid;
+    padding-bottom: 10px;
+    padding-top: 5px;
+    color: darkolivegreen;
+    font-weight: bold;
+  }
+
+/* Center align the text within the three columns below the carousel */
+.col-md-4 {
+  margin-bottom: 1.5rem;
+  text-align: center;
+}
+.col-md-4 h2 {
+  font-weight: 400;
+}
+/* rtl:begin:ignore */
+.col-md-4 p {
+  margin-right: .75rem;
+  margin-left: .75rem;
+}
+

@@ -1,0 +1,62 @@
+.main-font-color:hover 
+{
+    /* color: #642100; */
+    color: darkolivegreen;
+    background-color:#f4f4f4;
+    font-weight: bold;
+}
+
+.main-font-color:active 
+{
+    /* color: #642100; */
+    color: darkolivegreen;
+    background-color:#f4f4f4;
+    font-weight: bold;
+}
+
+.main-font-color:focus 
+{
+    /* color: #642100; */
+    color: #f4f4f4;
+    background-color:darkolivegreen;
+    font-weight: bold;
+}
+
+.navbar-brand, .navbar-nav > li > a 
+.navbar-brand, .navbar-nav > li > a > i {
+    line-height: 45px;
+    height: 40px;
+    padding-top: 0px;
+}
+
+.user-height {
+    line-height: 0px;
+    height: 0px;
+    padding-top: 27px;
+}
+
+@media (max-width:576px){
+    .navbar-nav li a span
+    {
+        max-width:100% !important;
+    }
+
+    .navbar-nav li a i
+    {
+        display: none;
+    }
+}
+
+
+@media (min-width:768px){
+    .navbar-nav li a i
+    {
+        max-width:100% !important;
+    }
+
+    .navbar-nav li a span
+    {
+        display: none;
+    }
+}
+

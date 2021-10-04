@@ -1,1 +1,39 @@
 /* You can add global styles to this file, and also import other style files */
+
+/* @import '../node_modules/bootstrap/dist/css/bootstrap.min.css'; */
+
+.component, .component:hover {
+    color: whitesmoke;
+    background-color: #642100;
+}
+
+.toolmenu {
+    border-bottom-style: solid;
+    border-bottom-color: lightgrey;
+    border-bottom-width: 1px;
+    /* background-color: #f4f4f4; */
+    background-color:darkolivegreen;
+}
+
+.brand {
+    /* color: #642100; */
+    color: #f4f4f4;
+    font-weight: bold;
+}
+
+.main-font-color
+{
+    /* color: #642100; */
+    color: #f4f4f4;
+    background-color:darkolivegreen;
+    font-weight: bold;
+}
+
+.help-block {
+    font-size: 80%;
+    color: darkred;
+}
+
+
+
+

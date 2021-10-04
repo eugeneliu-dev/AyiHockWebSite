@@ -1,0 +1,22 @@
+<div class="container col-lg-10">
+    <div class="row align-items-center py-5">
+      <div class="col-md-10 mx-auto col-lg-6">
+        <form class="p-4 p-md-5 border rounded-3"
+              [formGroup]="pwdResetForm" (ngSubmit)="onSubmit()">
+            
+          <strong class="text-muted" style="font-size: larger;">密碼重置</strong>
+          <hr class="my-3">
+          <div class="mb-3 form-group">
+            <input type="email" formControlName="email" class="form-control" placeholder="電子信箱" required>
+            <div class="help-block" *ngIf="fc.email.errors?.appEmailValidator && (fc.email?.dirty || fc.email?.touched)">
+                <p>信箱格式不正確</p>
+            </div>           
+          </div>
+          <button class="w-100 btn component" 
+                  type="submit"
+                  [disabled]="!pwdResetForm.valid">送出
+          </button>
+        </form>
+      </div>
+    </div>
+</div>

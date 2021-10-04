@@ -1,0 +1,78 @@
+<!-- 
+1. LoginForm使用[範本驅動型表單](template-driven forms)
+2. (帳號)Email驗證 - 採自訂驗證的方式
+3. 密碼驗證 - 採Angular-ngModel內建validator方式
+ -->
+
+
+ <div class="container col-lg-10">
+    <div class="row align-items-center py-5">
+      <!-- <div class="col-lg-8 text-center text-lg-start" >
+        <img src="../assets/memo.jpg" style="float: right; width:max-content;">
+      </div> -->
+      <div class="col-md-8 mx-auto col-lg-4">
+        <form class="p-4 p-md-5 border rounded-3"
+              #loginForm="ngForm"
+              (ngSubmit)="onSubmit()">
+          
+          <strong class="text-muted" style="font-size: larger;">會員登入</strong>
+          <hr class="my-3">
+          <div class="mb-3">
+            <input type="email" 
+                   class="form-control" 
+                   id="mail" 
+                   placeholder="Email"
+                   required
+                   appEmailValidator
+                   [(ngModel)]="email" name="mail"
+                   #mail="ngModel">
+            <div class="help-block" *ngIf="mail.errors && (mail.touched || mail.dirty)">
+                <p>
+                  <span *ngIf="mail.errors.required">#請填入電子郵件帳號</span>
+                  <span *ngIf="mail.errors.appEmailValidator">#電子郵件格式不合法</span>
+                </p>
+            </div>
+          </div>
+          <div class="mb-3">
+            <input type="password" 
+                   class="form-control" 
+                   id="pwd" 
+                   placeholder="密碼"
+                   required
+                   minlength="8"
+                   [(ngModel)]="password" name="pwd"
+                   #pwd="ngModel">
+            <div class="help-block" *ngIf="pwd.errors && (pwd.touched || pwd.dirty)">
+              <p>
+                <span *ngIf="pwd.errors.required">#請填入密碼</span>
+                <span *ngIf="pwd.errors.minlength">#密碼需大於8個字元</span>
+              </p>
+            </div>
+          </div>
+          <button class="w-100 btn component" 
+                  type="submit"
+                  [disabled]="!loginForm.form.valid">登入
+          </button>
+          <div class="row my-4">
+            <div class="col-5"><hr></div>
+            <div class="col-2 d-flex align-items-center justify-content-center"><p class="text-muted">或</p></div>
+            <div class="col-5"><hr></div>
+          </div>
+          <!-- <button class="w-100 btn btn-lg component">
+            新會員註冊
+          </button> -->
+          <button href="#" class="w-100 btn component mb-4" type="button" (click)="routeToSignup()">
+            新會員註冊
+          </button>
+          <a class="w-100 btn btn-light mb-4">
+            <img src="../../../assets/logo/ic-facebook-24.svg" > 使用Facebook帳號登入
+          </a>
+          <a class="w-100 btn btn-light" (click)="signInWithGoogle()">
+            <img src="../../../assets/logo/ic-google-24.svg" > 使用Google帳號登入
+          </a>
+          <hr class="mt-4">
+          <a href="" class="d-flex align-items-center justify-content-center text-muted">忘記密碼?</a>
+        </form>
+      </div>
+    </div>
+</div>

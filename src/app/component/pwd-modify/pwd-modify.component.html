@@ -1,0 +1,29 @@
+<div class="container col-lg-10">
+    <div class="row align-items-center py-5">
+      <div class="col-md-10 mx-auto col-lg-6">
+        <form class="p-4 p-md-5 border rounded-3"
+              [formGroup]="pwdModifyForm" (ngSubmit)="onSubmit()">
+            
+          <strong class="text-muted" style="font-size: larger;">更改密碼</strong>
+          <hr class="my-3">
+          <div class="mb-3 form-group">
+            <input type="password" formControlName="oldPassword" class="form-control" placeholder="舊密碼" required>
+            <div class="help-block" *ngIf="fc.oldPassword.errors && (fc.oldPassword?.dirty || fc.oldPassword?.touched)">至少需8個字元</div> 
+          </div>
+          <div class="mb-3 form-group">
+            <input type="password" formControlName="newPassword" class="form-control" placeholder="新密碼(至少8個字元)" required>
+            <div class="help-block" *ngIf="fc.newPassword.errors && (fc.newPassword?.dirty || fc.newPassword?.touched)">至少需8個字元</div> 
+          </div>
+          <div class="mb-3 form-group">
+            <input type="password" formControlName="confirm" class="form-control" placeholder="確認新密碼" required>
+            <div class="help-block" *ngIf="fc.confirm.errors?.minLength">至少需8個字元</div>
+            <div class="help-block" *ngIf="fc.confirm.errors?.mustMatch">密碼不一致</div> 
+          </div>
+          <button class="w-100 btn component" 
+                  type="submit"
+                  [disabled]="!pwdModifyForm.valid">確認
+          </button>
+        </form>
+      </div>
+    </div>
+</div>
