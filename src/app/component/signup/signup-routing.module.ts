@@ -1,12 +1,13 @@
 import { NgModule } from '@angular/core';
 import { RouterModule, Routes } from '@angular/router';
+import { UnauthenticationGuardService } from 'src/app/service/unauthentication-guard.service';
 
 import { SignupComponent } from './signup.component';
 
 const routes: Routes = [
   {
     path: '',
-    component: SignupComponent
+    component: SignupComponent, canActivate: [UnauthenticationGuardService]
   }
 ];
 

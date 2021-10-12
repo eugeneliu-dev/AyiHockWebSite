@@ -1,12 +1,13 @@
 import { NgModule } from '@angular/core';
 import { RouterModule, Routes } from '@angular/router';
+import { UnauthenticationGuardService } from 'src/app/service/unauthentication-guard.service';
 
 import { PwdResetComponent } from './pwd-reset.component';
 
 const routes: Routes = [
   {
     path: '',
-    component: PwdResetComponent
+    component: PwdResetComponent, canActivate: [UnauthenticationGuardService]
   }
 ];
 
