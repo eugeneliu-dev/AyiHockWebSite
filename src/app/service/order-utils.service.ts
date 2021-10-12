@@ -14,18 +14,18 @@ import { ConfigService } from './config.service';
 export class OrderUtilsService {
 
   //orderContentSubject = new Subject<MealsGet[]>();
-  orderContentSubject = new BehaviorSubject<MealsGet[]>([]);
+  orderContentSubject$ = new BehaviorSubject<MealsGet[]>([]);
   orders: MealsGet[] = [];
   receivedOrderList: OrderGet[] = [];
 
   constructor(private conf: ConfigService, private http: HttpClient, private alert: AlertFormService) { }
 
   setOrder(allMeals: MealsGet[]) {
-    this.orderContentSubject.next(allMeals);
+    this.orderContentSubject$.next(allMeals);
   }
 
   getOrder() {
-    return this.orderContentSubject.asObservable();
+    return this.orderContentSubject$.asObservable();
   }
 
   orderPost(orderPost: OrderPost) {

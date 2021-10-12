@@ -20,13 +20,6 @@ export class ValidatorService {
 
   passwordCrossValidator(controlName: string, matchingControlName: string)
   {
-    // return (control: AbstractControl): ValidationErrors | null => {
-    //   const pwd = control.get('password');
-    //   const confirm = control.get('confirm');
-    //   return pwd && confirm && pwd === confirm ? {'pwdConfirmValidator': true} : null;
-
-    // };
-
     return (formGroup: FormGroup) => {
       const control = formGroup.controls[controlName];
       const matchingControl = formGroup.controls[matchingControlName];
