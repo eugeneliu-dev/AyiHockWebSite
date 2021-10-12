@@ -1,5 +1,5 @@
 {
-    "apiUrl": "https://ayihock-api.herokuapp.com/api",
+    "apiUrl": "https://ayihock-api-docker.herokuapp.com/api/",
     "uniqueKey": "9@u=njTO!0o#lagd",
     "uniqueIv": "ayihhok@No.489.1F"
 }
