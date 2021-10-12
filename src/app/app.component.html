@@ -1,35 +1,33 @@
 
   <nav class="navbar navbar-expand-lg toolmenu fixed-top">
     <div class="container">
-        <a class="navbar-brand brand">
-          ㄚ奕の腿庫飯
-        </a>
+        <a class="navbar-brand brand">ㄚ奕の腿庫飯</a>
         <button style="color: honeydew; border-color: honeydew;" class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
             ☰
         </button>
         <div class="collapse navbar-collapse in" id="navbarNav">
             <ul class="navbar-nav me-auto">
-                <li class="nav-item">
+                <li class="nav-item" data-bs-toggle="collapse" data-bs-target=".navbar-collapse.show">
                     <a class="nav-link main-font-color" aria-current="page" [routerLink]="path.home">首頁</a>
                 </li>
-                <li class="nav-item">
+                <li class="nav-item" data-bs-toggle="collapse" data-bs-target=".navbar-collapse.show">
                     <a class="nav-link main-font-color" [routerLink]="path.news">最新消息</a>
                 </li>
-                <li class="nav-item">
+                <li class="nav-item" data-bs-toggle="collapse" data-bs-target=".navbar-collapse.show">
                     <a class="nav-link main-font-color" [routerLink]="path.meals">線上點餐</a>
                 </li>
-                <li class="nav-item">
+                <li class="nav-item" data-bs-toggle="collapse" data-bs-target=".navbar-collapse.show">
                     <a class="nav-link main-font-color" [routerLink]="path.about">關於我們</a>
                 </li>
             </ul>
             <ul class="navbar-nav mr-auto">
-              <li class="nav-item active">
+              <li class="nav-item" data-bs-toggle="collapse" data-bs-target=".navbar-collapse.show">
                 <a class="nav-link main-font-color" [routerLink]="path.order">
                   <i class="large-nav material-icons">shopping_cart</i>
                   <span class="small-nav">購物車</span>
                 </a>
               </li>
-              <li class="nav-item dropdown active">
+              <li class="nav-item dropdown">
                 <a *ngIf="!isLogged" class="nav-link dropdown-toggle main-font-color" role="button" id="dropdownMenuLink" data-bs-toggle="dropdown" aria-expanded="false">
                   <i class="large-nav material-icons">person</i>
                   <span class="small-nav">個人資料</span>
@@ -39,16 +37,18 @@
                   <span class="small-nav">個人資料</span>
                 </a>
                 <ul class="dropdown-menu" aria-labelledby="dropdownMenuLink">
-                  <li><a class="dropdown-item" *ngIf="!isLogged" [routerLink]="path.login">登入</a></li>
-                  <li><a class="dropdown-item" *ngIf="isLogged" (click)="logout()" [routerLink]="path.home">登出</a></li>
-                  <li><a class="dropdown-item" *ngIf="isLogged" [routerLink]="path.user_orderlist">查詢訂單</a></li>
-                  <li><a class="dropdown-item" *ngIf="isLogged && userModel.getPlatform === 0" [routerLink]="path.pwd_modify">修改密碼</a></li>
+                  <li><a class="dropdown-item" data-bs-toggle="collapse" data-bs-target=".navbar-collapse.show" *ngIf="!isLogged" [routerLink]="path.login">登入</a></li>
+                  <li><a class="dropdown-item" data-bs-toggle="collapse" data-bs-target=".navbar-collapse.show" *ngIf="isLogged" (click)="logout()" [routerLink]="path.home">登出</a></li>
+                  <li><a class="dropdown-item" data-bs-toggle="collapse" data-bs-target=".navbar-collapse.show" *ngIf="isLogged" [routerLink]="path.user_orderlist">查詢訂單</a></li>
+                  <li><a class="dropdown-item" data-bs-toggle="collapse" data-bs-target=".navbar-collapse.show" *ngIf="isLogged && userModel.getPlatform === 0" [routerLink]="path.pwd_modify">修改密碼</a></li>
                 </ul>
               </li>
             </ul>
         </div>
     </div>
   </nav>
+
+
 
 <!-- <google-map
   height="75%"

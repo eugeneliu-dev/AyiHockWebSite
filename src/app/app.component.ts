@@ -1,4 +1,3 @@
-import { Router } from '@angular/router';
 import { Component, OnInit } from '@angular/core';
 import { AuthenticationService } from 'src/app/service/authentication.service';
 import { GoogleLoginProvider, SocialAuthService, SocialUser } from 'angularx-social-login';
@@ -17,7 +16,6 @@ import { UserModel } from './model/user-model';
 export class AppComponent implements OnInit {
 
   title = 'AyiHockWebsite';
-  //loginText = '登入';
   path = appPath;
   isLogged = false;
 
@@ -27,7 +25,7 @@ export class AppComponent implements OnInit {
   public subLoginStatus: Subscription = new Subscription();
   public subUserModel: Subscription = new Subscription();
 
-  constructor(private router: Router, private auth: AuthenticationService, private socialAuthService: SocialAuthService) { }
+  constructor(private auth: AuthenticationService, private socialAuthService: SocialAuthService) { }
 
   ngOnInit(): void {
 

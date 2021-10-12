@@ -22,7 +22,7 @@ import { GoogleLoginProvider, SocialAuthServiceConfig, SocialLoginModule } from 
     JwtModule.forRoot({
       config: {
         tokenGetter: tokenGetter,
-        allowedDomains: ["https://ayihock-api-docker.herokuapp.com"],
+        allowedDomains: ["ayihock-api-docker.herokuapp.com"],
         disallowedRoutes: ["https://ayihock-api-docker.herokuapp.com/api/login/signin"]
       }
     })

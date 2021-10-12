@@ -1,5 +1,5 @@
 import { Result } from './../../model/result-format';
-import { Component, OnInit, OnChanges } from '@angular/core';
+import { Component, OnInit} from '@angular/core';
 
 // Constant
 //import { appPath } from '../../constant/app-path.const';
