@@ -1,10 +1,4 @@
 
-
-<!-- <google-map
-  height="200px"
-  width="500px"
-  [zoom]="zoom"
-  [center]="center"
-  [options]="options"
->
-</google-map> -->
+<google-map [options]="mapOptions" height="200px" width="400px">
+  <map-marker [position]="marker.position"></map-marker>
+</google-map>

@@ -7,22 +7,15 @@ import { Component, OnInit } from '@angular/core';
 })
 export class AboutLocationComponent implements OnInit {
 
-  center: google.maps.LatLngLiteral = {
-    lat: 25.01872,
-    lng: 121.42584
-  };
+  mapOptions: google.maps.MapOptions = {
+    center: { lat: 25.018132, lng: 121.425666 },
+    zoom : 16
+  }
+  marker = {
+    position: { lat: 25.018132, lng: 121.425666 },
+  }
 
-  zoom = 17;
-
-  options: google.maps.MapOptions = {
-    disableDefaultUI: true,
-    backgroundColor: '#126df5',
-    clickableIcons: false,
-    disableDoubleClickZoom: true,
-    draggable: true,
-    zoomControl: true,
-  };
-
+  
   constructor() { }
 
   ngOnInit(): void {
