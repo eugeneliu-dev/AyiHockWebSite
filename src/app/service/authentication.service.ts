@@ -19,8 +19,8 @@ export class AuthenticationService {
   userModel = new UserModel('', '', '', 0);
   //userWithSocial!: SocialUser
 
-  loginStatusSubject = new BehaviorSubject<boolean>(false);
-  loginUserSubject = new BehaviorSubject<UserModel>(this.userModel);
+  loginStatusSubject$ = new BehaviorSubject<boolean>(false);
+  loginUserSubject$ = new BehaviorSubject<UserModel>(this.userModel);
 
   constructor(private http: HttpClient, 
               private jwtHelper: JwtHelperService, 
@@ -39,8 +39,8 @@ export class AuthenticationService {
           const decodeToken = this.jwtHelper.decodeToken(jwt);
           this.userModel = new UserModel(decodeToken.unique_name, decodeToken.email, decodeToken.role, 0);
 
-          this.loginStatusSubject.next(true);
-          this.loginUserSubject.next(this.userModel);
+          this.loginStatusSubject$.next(true);
+          this.loginUserSubject$.next(this.userModel);
         }
         else
         {
@@ -65,8 +65,8 @@ export class AuthenticationService {
           const decodeToken = this.jwtHelper.decodeToken(jwt);
           this.userModel = new UserModel(decodeToken.unique_name, decodeToken.email, decodeToken.role, 1);
 
-          this.loginStatusSubject.next(true);
-          this.loginUserSubject.next(this.userModel);
+          this.loginStatusSubject$.next(true);
+          this.loginUserSubject$.next(this.userModel);
         }
         else
         {
@@ -95,7 +95,7 @@ export class AuthenticationService {
   logout() {
 
     if (this.jwtHelper.isTokenExpired(localStorage.getItem('jwt')!)) {
-      this.loginStatusSubject.next(false);
+      this.loginStatusSubject$.next(false);
       const decodeToken = this.jwtHelper.decodeToken(localStorage.getItem('jwt')!);
       localStorage.removeItem('jwt');
       localStorage.removeItem(btoa(decodeToken.unique_name));
@@ -104,7 +104,7 @@ export class AuthenticationService {
       this.logoutSetBlackToCache()
       .then(res => {
         if (res.Success) {
-          this.loginStatusSubject.next(false);
+          this.loginStatusSubject$.next(false);
           const decodeToken = this.jwtHelper.decodeToken(localStorage.getItem('jwt')!);
           localStorage.removeItem('jwt');
           localStorage.removeItem(btoa(decodeToken.unique_name));
@@ -119,11 +119,11 @@ export class AuthenticationService {
   }
 
   getloginStatus() {
-    return this.loginStatusSubject.asObservable();
+    return this.loginStatusSubject$.asObservable();
   }
 
   getloginUserModel() {
-    return this.loginUserSubject.asObservable();
+    return this.loginUserSubject$.asObservable();
   }
 
   checkUser(): Observable<boolean> {
@@ -132,7 +132,7 @@ export class AuthenticationService {
     
 
     if (this.loggedIn) {
-        this.loginStatusSubject.next(true);
+        this.loginStatusSubject$.next(true);
         this.getUser();
         return of(true);
     } else {
@@ -148,7 +148,7 @@ export class AuthenticationService {
     if(token !== null) {
       const decodeToken = this.jwtHelper.decodeToken(token);
       this.userModel = new UserModel(decodeToken.unique_name, decodeToken.email, decodeToken.role, parseInt(decodeToken.platform, 10));
-      this.loginUserSubject.next(this.userModel);
+      this.loginUserSubject$.next(this.userModel);
     }
   }
 
