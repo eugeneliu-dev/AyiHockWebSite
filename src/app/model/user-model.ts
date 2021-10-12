@@ -70,3 +70,17 @@ export class UserPwdModifyModel {
         public NewPassword: string
     ) { }
 }
+
+export class UserPwdResetModel {
+    constructor(
+        public UserAccountMail: string,
+        public DefaultPassword: string,
+        public NewPassword: string
+    ) { }
+}
+
+export class UserPwdForgetModel {
+    constructor(
+        public UserAccountMail: string
+    ) { }
+}

@@ -1,10 +1,3 @@
-<!-- 
-1. LoginForm使用[範本驅動型表單](template-driven forms)
-2. (帳號)Email驗證 - 採自訂驗證的方式
-3. 密碼驗證 - 採Angular-ngModel內建validator方式
- -->
-
-
  <div class="container col-lg-10">
     <div class="row align-items-center py-5">
       <!-- <div class="col-lg-8 text-center text-lg-start" >
@@ -58,20 +51,17 @@
             <div class="col-2 d-flex align-items-center justify-content-center"><p class="text-muted">或</p></div>
             <div class="col-5"><hr></div>
           </div>
-          <!-- <button class="w-100 btn btn-lg component">
-            新會員註冊
-          </button> -->
           <button href="#" class="w-100 btn component mb-4" type="button" (click)="routeToSignup()">
             新會員註冊
           </button>
-          <a class="w-100 btn btn-light mb-4">
+          <!-- <a class="w-100 btn btn-light mb-4">
             <img src="../../../assets/logo/ic-facebook-24.svg" > 使用Facebook帳號登入
-          </a>
+          </a> -->
           <a class="w-100 btn btn-light" (click)="signInWithGoogle()">
             <img src="../../../assets/logo/ic-google-24.svg" > 使用Google帳號登入
           </a>
           <hr class="mt-4">
-          <a href="" class="d-flex align-items-center justify-content-center text-muted">忘記密碼?</a>
+          <a class="d-flex align-items-center justify-content-center text-muted" (click)="routeToPwdForget()">忘記密碼?</a>
         </form>
       </div>
     </div>

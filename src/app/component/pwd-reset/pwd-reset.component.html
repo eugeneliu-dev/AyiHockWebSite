@@ -12,6 +12,21 @@
                 <p>信箱格式不正確</p>
             </div>           
           </div>
+          <div class="mb-3 form-group">
+            <input type="text" formControlName="authCode" class="form-control" placeholder="驗證碼" required>
+            <div class="help-block" *ngIf="fc.authCode.errors && (fc.authCode?.dirty || fc.authCode?.touched)">
+                <p>驗證碼需要12個字元</p>
+            </div>           
+          </div>
+          <div class="mb-3 form-group">
+            <input type="password" formControlName="newPassword" class="form-control" placeholder="新密碼(至少8個字元)" required>
+            <div class="help-block" *ngIf="fc.newPassword.errors && (fc.newPassword?.dirty || fc.newPassword?.touched)">至少需8個字元</div> 
+          </div>
+          <div class="mb-3 form-group">
+            <input type="password" formControlName="confirm" class="form-control" placeholder="確認新密碼" required>
+            <div class="help-block" *ngIf="fc.confirm.errors?.minLength">至少需8個字元</div>
+            <div class="help-block" *ngIf="fc.confirm.errors?.mustMatch">密碼不一致</div> 
+          </div>
           <button class="w-100 btn component" 
                   type="submit"
                   [disabled]="!pwdResetForm.valid">送出

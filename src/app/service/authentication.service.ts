@@ -30,7 +30,7 @@ export class AuthenticationService {
               private socialAuthService: SocialAuthService) { }
 
   login(email: string, password: string): Promise<Result> {
-    return this.http.post<Result>(this.conf.apiUrl + "login/signin", { email, password })
+    return this.http.post<Result>(this.conf.apiUrl + "login/normal", { email, password })
       .pipe(tap(res => {
         if (res.Success)
         {
@@ -56,7 +56,7 @@ export class AuthenticationService {
   }
 
   loginGoogle(name: string, email: string, token: string): Promise<Result> {
-    return this.http.post<Result>(this.conf.apiUrl + "login/signin/google", { name, email, token })
+    return this.http.post<Result>(this.conf.apiUrl + "login/google", { name, email, token })
       .pipe(tap(res => {
         if (res.Success)
         {

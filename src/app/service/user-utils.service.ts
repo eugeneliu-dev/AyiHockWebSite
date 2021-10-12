@@ -2,9 +2,10 @@ import { Injectable } from '@angular/core';
 import { HttpClient, HttpHeaders } from '@angular/common/http';
 import { ConfigService } from './config.service';
 import { AlertFormService } from './alert-form.service';
-import { tap } from 'rxjs/operators';
+import { map, tap } from 'rxjs/operators';
 import { Result } from '../model/result-format';
-import { UserPwdModifyModel } from '../model/user-model';
+import { UserPwdForgetModel, UserPwdModifyModel, UserPwdResetModel } from '../model/user-model';
+import { Observable } from 'rxjs';
 
 @Injectable({
   providedIn: 'root'
@@ -28,5 +29,25 @@ export class UserUtilsService {
         }
       )).toPromise();
   }
+
+
+  userResetPwd(userPwdResetModel: UserPwdResetModel): Observable<Result> {
+    const httpOptions = {
+      headers: new HttpHeaders({ 'Content-Type': 'application/json' })
+    }
+
+    return this.http.put<Result>(this.conf.apiUrl + "customer/user/pwdreset", userPwdResetModel, httpOptions)
+    .pipe(map(res => {
+      return res;
+    }))
+  }
+
+  userForgetPwd(userPwdForgetModel: UserPwdForgetModel): Observable<Result> {
+    return this.http.put<Result>(this.conf.apiUrl + "customer/user/pwdforget", userPwdForgetModel)
+    .pipe(map(res => {
+      return res;
+    }))
+  }
+
 
 }

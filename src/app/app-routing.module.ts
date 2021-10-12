@@ -53,6 +53,10 @@ const routes: Routes = [
     loadChildren: () => import('./component/success/success.module').then(m => m.SuccessModule)
   },
   {
+    path: appPath.pwd_forget,
+    loadChildren: () => import('./component/pwd-forget/pwd-forget.module').then(m => m.PwdForgetModule)
+  },
+  {
     path: appPath.pwd_modify,
     loadChildren: () => import('./component/pwd-modify/pwd-modify.module').then(m => m.PwdModifyModule)
   },
@@ -80,7 +84,7 @@ const routes: Routes = [
   //imports: [RouterModule.forRoot(routes)],
   imports: [RouterModule.forRoot(routes, {
     enableTracing: true,
-    useHash: true,
+    //useHash: true,
     preloadingStrategy: PreloadAllModules
   })],
   exports: [RouterModule]

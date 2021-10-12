@@ -30,6 +30,9 @@ export const appPath = {
     // 結帳成功
     success: 'success',
 
+    // 忘記密碼
+    pwd_forget: 'pwd-forget',
+
     // 重置密碼
     pwd_reset: 'pwd-reset',
 

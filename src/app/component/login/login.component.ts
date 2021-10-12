@@ -29,6 +29,10 @@ export class LoginComponent implements OnInit {
     this.router.navigate(['signup']);
   }
 
+  routeToPwdForget() {
+    this.router.navigate(['pwd-forget']);
+  }
+
   signInWithGoogle(): void {
     let isCalled = false;
     
