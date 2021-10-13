@@ -127,10 +127,6 @@ export class AuthenticationService {
   }
 
   checkUser(): Observable<boolean> {
-
-    console.log("CheckUser: DDDDDDDD");
-    
-
     if (this.loggedIn) {
         this.loginStatusSubject$.next(true);
         this.getUser();
