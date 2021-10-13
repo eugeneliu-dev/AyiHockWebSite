@@ -6,16 +6,16 @@
                 <table class="table table-bordered table-sm">
                     <thead>
                         <tr class="table-success row">
-                            <th class="col-2">日期</th>
+                            <th class="col-3">日期</th>
                             <th class="col-2">分類</th>
-                            <th class="col-8">內容</th>
+                            <th class="col-7">內容</th>
                         </tr>
                     </thead>
                     <tbody style="font-size: 14px">
                         <tr class="row" *ngFor="let news of newsList | async">
-                            <td class="col-2">{{news.ModifyTime | date:'yyyy/MM/dd'}}</td>
+                            <td class="col-3">{{news.ModifyTime | date:'yyyy/MM/dd'}}</td>
                             <td class="col-2">{{news.CategoryName}}</td>
-                            <td class="col-8">{{news.Content}}</td>
+                            <td class="col-7">{{news.Content}}</td>
                         </tr>
                     </tbody>
                 </table>

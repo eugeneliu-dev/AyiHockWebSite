@@ -11,14 +11,17 @@
         <div class="col-lg-9">
             <div *ngIf="show_mix_meals">
                 <div *ngFor="let meal of mix_meals" class="row cart-item">
-                    <div class="col-3">
-                        <img src={{meal.picPath}} width="120" height="80">
+                    <div class="col-sm-3 col-5">
+                        <img src={{meal.picPath}} width="120" height="90">
                     </div>
-                    <div class="col-6">
+                    <div class="col-sm-6 col-7">
                         <p>{{meal.name }} (${{meal.price}})</p>
                         <p>{{meal.description}}</p>
+                        <p>
+                            <span class="counter" (click)="subOne(meal)">-</span><span class="counter">{{meal.quantity}}</span><span class="counter" (click)="addOne(meal)">+</span>
+                        </p>
                     </div>
-                    <div class="col-3">
+                    <div class="col-sm-3">
                         <p>
                             <span class="counter" (click)="subOne(meal)">-</span><span class="counter">{{meal.quantity}}</span><span class="counter" (click)="addOne(meal)">+</span>
                         </p>
@@ -27,14 +30,17 @@
             </div>
             <div *ngIf="show_double_meals">
                 <div *ngFor="let meal of double_meals" class="row cart-item">
-                    <div class="col-3">
+                    <div class="col-sm-3 col-5">
                         <img src={{meal.picPath}} width="120" height="80">
                     </div>
-                    <div class="col-6">
+                    <div class="col-sm-6 col-7">
                         <p>{{meal.name }} (${{meal.price}})</p>
                         <p>{{meal.description}}</p>
+                        <p>
+                            <span class="counter" (click)="subOne(meal)">-</span><span class="counter">{{meal.quantity}}</span><span class="counter" (click)="addOne(meal)">+</span>
+                        </p>
                     </div>
-                    <div class="col-3">
+                    <div class="col-sm-3">
                         <p>
                             <span class="counter" (click)="subOne(meal)">-</span><span class="counter">{{meal.quantity}}</span><span class="counter" (click)="addOne(meal)">+</span>
                         </p>
@@ -43,14 +49,17 @@
             </div>
             <div *ngIf="show_others_meals">
                 <div *ngFor="let meal of others_meals" class="row cart-item">
-                    <div class="col-3">
+                    <div class="col-sm-3 col-5">
                         <img src={{meal.picPath}} width="120" height="80">
                     </div>
-                    <div class="col-6">
+                    <div class="col-sm-6 col-7">
                         <p>{{meal.name }} (${{meal.price}})</p>
                         <p>{{meal.description}}</p>
+                        <p>
+                            <span class="counter" (click)="subOne(meal)">-</span><span class="counter">{{meal.quantity}}</span><span class="counter" (click)="addOne(meal)">+</span>
+                        </p>
                     </div>
-                    <div class="col-3">
+                    <div class="col-sm-3">
                         <p>
                             <span class="counter" (click)="subOne(meal)">-</span><span class="counter">{{meal.quantity}}</span><span class="counter" (click)="addOne(meal)">+</span>
                         </p>
@@ -64,7 +73,7 @@
             <div>
                 <input class="btn-product-type" id="toCheckout" type="button" value={{checkoutText}}
                     (click)="routeToOrder()" style="float: right;" />
-                <span style="float: right; margin-right: 50px; font-size:x-large;">總金額：{{totalAmount}}</span>
+                <span style="float: left; font-size:x-large;">總金額：{{totalAmount}}</span>
             </div>
         </div>
     </div>
